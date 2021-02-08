@@ -28,6 +28,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && sed -i 's#/bin/ash#/bin/bash#g' /etc/passwd \
     && apk add --no-cache tzdata \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone
+    && echo "Asia/Shanghai" > /etc/timezone \
+    && echo "export PS1='[\u@\h \W]\$ '" >> /etc/profile \
+    && echo "alias ll='ls -l'" >> /etc/profile
 
 CMD [ "bash" ]
