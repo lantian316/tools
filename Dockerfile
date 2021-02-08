@@ -23,7 +23,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && apk add --no-cache bind-tools \
     && apk add --no-cache libressl \
     && apk add --no-cache mysql-client \
-    && apk add --no-cache redis
+    && apk add --no-cache redis \
     && echo "hosts: files dns" > /etc/nsswitch.conf \
     && sed -i 's#/bin/ash#/bin/bash#g' /etc/passwd \
     && apk add --no-cache tzdata \
