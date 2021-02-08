@@ -19,6 +19,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && apk add --no-cache ethtool \
     && apk add --no-cache curl \
     && apk add --no-cache wget \
+    && apk add --no-cache vim \
     && apk add --no-cache tcpdump \
     && apk add --no-cache bind-tools \
     && apk add --no-cache libressl \
@@ -29,7 +30,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && apk add --no-cache tzdata \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
-    && echo "export PS1='[\u@\h \W]\$ '" >> /etc/profile \
-    && echo "alias ll='ls -l'" >> /etc/profile
+    && echo "export PS1='[\u@\h \W]\$ '" >> /root/.bashrc \
+    && echo "alias ll='ls -l'" >> /root/.bashrc
 
-CMD [ "bash" ]
+CMD [ "tail", "-f" ]
